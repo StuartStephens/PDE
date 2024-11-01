@@ -4,8 +4,8 @@
 
 ### Git Config
 
-`git config --global user.name StuartStephens`
-`git config --global user.email contact@stuartstephens.com`
+`git config --global user.name "StuartStephens"`
+`git config --global user.email "contact@stuartstephens.com"`
 `git config --global --add --bool push.autoSetupRemote true`
 
 ### Install Neovim
