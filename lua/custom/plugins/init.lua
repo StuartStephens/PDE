@@ -111,8 +111,8 @@ keymap('n', '<M-p>', ':cprev<CR>', opts)
 
 -- Neorg settings --
 vim.opt.foldmethod = 'indent'
-vim.opt.foldlevelstart = 2
-vim.opt.conceallevel = 3
+vim.opt.foldlevelstart = 1
+vim.opt.conceallevel = 1
 vim.opt.concealcursor = 'nc'
 
 return {}
