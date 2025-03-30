@@ -13,6 +13,7 @@ return {
   keys = {
     { '\\', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
   },
+  lazy = false,
   opts = {
     filesystem = {
       window = {
