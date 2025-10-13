@@ -771,6 +771,7 @@ require('lazy').setup({
         javascript = { 'prettier', 'prettierd', stop_after_first = false },
         html = { 'prettier', 'htmlbeautifier', 'prettierd', stop_after_first = true },
         htmlangular = { 'prettier', 'htmlbeautifier', stop_after_first = true },
+        gotmpl = { 'goimports', 'prettier', 'gofumpt', 'pretterd', stop_after_first = true },
       },
     },
   },
