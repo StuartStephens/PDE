@@ -1,3 +1,6 @@
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 --[[
 
 =====================================================================
@@ -940,7 +943,13 @@ require('lazy').setup({
       -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
       -- - sd'   - [S]urround [D]elete [']quotes
       -- - sr)'  - [S]urround [R]eplace [)] [']
-      require('mini.surround').setup()
+       require('mini.surround').setup({ mappings = { add = 'ys', delete = 'ds', replace = 'cs' } })
+
+       -- Don't yank when deleting or changing
+       local keymap = vim.keymap.set
+       local opts = { noremap = true, silent = true }
+       keymap('n', 'd', '"_d', opts)
+       keymap('n', 'c', '"_c', opts)
 
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,

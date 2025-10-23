@@ -3,7 +3,7 @@ return {
   dependencies = {
     -- Recommended for `ask()` and `select()`.
     -- Required for `toggle()`.
-    { 'folke/snacks.nvim', opts = { input = {}, picker = {} } },
+    { 'folke/snacks.nvim', lazy = false, priority = 1000, opts = { input = {}, picker = {} } },
   },
   config = function()
     vim.g.opencode_opts = {
