@@ -411,6 +411,20 @@ require('lazy').setup({
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
           },
+          file_browser = {
+            mappings = {
+              i = {
+                ['<M-c>'] = require('telescope._extensions.file_browser.actions').create_from_prompt,
+                ['<M-d>'] = require('telescope._extensions.file_browser.actions').remove,
+                ['<M-r>'] = require('telescope._extensions.file_browser.actions').rename,
+              },
+              n = {
+                ['<M-c>'] = require('telescope._extensions.file_browser.actions').create_from_prompt,
+                ['<M-d>'] = require('telescope._extensions.file_browser.actions').remove,
+                ['<M-r>'] = require('telescope._extensions.file_browser.actions').rename,
+              },
+            },
+          },
         },
       }
 
@@ -737,7 +751,7 @@ require('lazy').setup({
     cmd = { 'ConformInfo' },
     keys = {
       {
-        '<leader>f',
+        '<leader>ff',
         function()
           require('conform').format { async = true, lsp_format = 'fallback' }
         end,
@@ -1016,7 +1030,13 @@ require('lazy').setup({
     'nvim-telescope/telescope-file-browser.nvim',
     dependencies = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' },
     keys = {
-      { '<leader>fb', function() require('telescope').extensions.file_browser.file_browser() end, desc = '[F]ile [B]rowser' },
+      {
+        '<leader>fb',
+        function()
+          require('telescope').extensions.file_browser.file_browser()
+        end,
+        desc = '[F]ile [B]rowser',
+      },
     },
     config = function()
       require('telescope').load_extension 'file_browser'
@@ -1059,5 +1079,3 @@ require('lazy').setup({
 -- vim: ts=2 sts=2 sw=2 et
 require 'custom.options'
 require 'custom.keymaps'
-
-
