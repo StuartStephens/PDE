@@ -687,27 +687,27 @@ require('lazy').setup({
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
-      --    https://github.com/pmizio/typescript-tools.nvim
-      --
-      -- But for many setups, the LSP (`ts_ls`) will work just fine
-      ts_ls = {},
-      --
+        --    https://github.com/pmizio/typescript-tools.nvim
+        --
+        -- But for many setups, the LSP (`ts_ls`) will work just fine
+        ts_ls = {},
+        --
 
-      lua_ls = {
-        -- cmd = { ... },
-        -- filetypes = { ... },
-        -- capabilities = {},
-        settings = {
-          Lua = {
-            completion = {
-              callSnippet = 'Replace',
+        lua_ls = {
+          -- cmd = { ... },
+          -- filetypes = { ... },
+          -- capabilities = {},
+          settings = {
+            Lua = {
+              completion = {
+                callSnippet = 'Replace',
+              },
+              -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
+              -- diagnostics = { disable = { 'missing-fields' } },
             },
-            -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-            -- diagnostics = { disable = { 'missing-fields' } },
           },
         },
       }
-    }
 
       -- Ensure the servers and tools above are installed
       --
@@ -957,13 +957,13 @@ require('lazy').setup({
       -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
       -- - sd'   - [S]urround [D]elete [']quotes
       -- - sr)'  - [S]urround [R]eplace [)] [']
-       require('mini.surround').setup({ mappings = { add = 'ys', delete = 'ds', replace = 'cs' } })
+      require('mini.surround').setup { mappings = { add = 'ys', delete = 'ds', replace = 'cs' } }
 
-       -- Don't yank when deleting or changing
-       local keymap = vim.keymap.set
-       local opts = { noremap = true, silent = true }
-       keymap('n', 'd', '"_d', opts)
-       keymap('n', 'c', '"_c', opts)
+      -- Don't yank when deleting or changing
+      local keymap = vim.keymap.set
+      local opts = { noremap = true, silent = true }
+      keymap('n', 'd', '"_d', opts)
+      keymap('n', 'c', '"_c', opts)
 
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,
