@@ -75,3 +75,6 @@ keymap('n', '<leader>td', function()
     })
   end
 end, { desc = '[T]oggle [D]iagnostics' })
+
+-- Restart LSP
+keymap('n', '<leader>lr', ':LspRestart<CR>', { desc = '[L]SP [R]estart' })
