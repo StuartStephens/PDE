@@ -411,20 +411,6 @@ require('lazy').setup({
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
           },
-          file_browser = {
-            mappings = {
-              i = {
-                ['<M-c>'] = require('telescope._extensions.file_browser.actions').create_from_prompt,
-                ['<M-d>'] = require('telescope._extensions.file_browser.actions').remove,
-                ['<M-r>'] = require('telescope._extensions.file_browser.actions').rename,
-              },
-              n = {
-                ['<M-c>'] = require('telescope._extensions.file_browser.actions').create_from_prompt,
-                ['<M-d>'] = require('telescope._extensions.file_browser.actions').remove,
-                ['<M-r>'] = require('telescope._extensions.file_browser.actions').rename,
-              },
-            },
-          },
         },
       }
 
@@ -1039,6 +1025,28 @@ require('lazy').setup({
       },
     },
     config = function()
+      local fb_actions = require('telescope._extensions.file_browser.actions')
+
+      require('telescope').setup {
+        extensions = {
+          file_browser = {
+            hidden = true,
+            respect_gitignore = false,
+            mappings = {
+              i = {
+                ['<M-c>'] = fb_actions.create_from_prompt,
+                ['<M-d>'] = fb_actions.remove,
+                ['<M-r>'] = fb_actions.rename,
+              },
+              n = {
+                ['<M-c>'] = fb_actions.create_from_prompt,
+                ['<M-d>'] = fb_actions.remove,
+                ['<M-r>'] = fb_actions.rename,
+              },
+            },
+          },
+        },
+      }
       require('telescope').load_extension 'file_browser'
     end,
   },
