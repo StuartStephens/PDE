@@ -1025,7 +1025,7 @@ require('lazy').setup({
       },
     },
     config = function()
-      local fb_actions = require('telescope._extensions.file_browser.actions')
+      local fb_actions = require 'telescope._extensions.file_browser.actions'
 
       require('telescope').setup {
         extensions = {
@@ -1037,11 +1037,15 @@ require('lazy').setup({
                 ['<M-c>'] = fb_actions.create_from_prompt,
                 ['<M-d>'] = fb_actions.remove,
                 ['<M-r>'] = fb_actions.rename,
+                ['<M-h>'] = fb_actions.toggle_hidden,
+                ['<M-g>'] = fb_actions.toggle_respect_gitignore,
               },
               n = {
                 ['<M-c>'] = fb_actions.create_from_prompt,
                 ['<M-d>'] = fb_actions.remove,
                 ['<M-r>'] = fb_actions.rename,
+                ['<M-h>'] = fb_actions.toggle_hidden,
+                ['<M-g>'] = fb_actions.toggle_respect_gitignore,
               },
             },
           },
