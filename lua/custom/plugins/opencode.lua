@@ -92,8 +92,8 @@ return {
         tmap('<C-M-d>', 'session.half.page.down', 'Messages half page down')
         tmap('<M-u>', 'session.half.page.up', 'Messages half page up')
         tmap('<M-d>', 'session.half.page.down', 'Messages half page down')
-        tmap('<C-u>', 'session.half.page.up', 'Messages half page up')
-        tmap('<C-d>', 'session.half.page.down', 'Messages half page down')
+        tmap('<M-k>', 'session.half.page.up', 'Messages half page up')
+        tmap('<M-j>', 'session.half.page.down', 'Messages half page down')
         tmap('<PageUp>', 'session.page.up', 'Messages page up')
         tmap('<PageDown>', 'session.page.down', 'Messages page down')
       end,
