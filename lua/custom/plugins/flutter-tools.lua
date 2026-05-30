@@ -19,14 +19,8 @@ return {
       'neovim/nvim-lspconfig',
     },
     config = function()
-      require('flutter-tools').setup {
-        lsp = {
-          color = {
-            enabled = true,
-            background = true,
-          },
-        },
-      }
+      require('flutter-tools').setup {}
+      vim.lsp.document_color.enable()
     end,
   },
 
