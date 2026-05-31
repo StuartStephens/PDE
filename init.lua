@@ -897,9 +897,13 @@ do
   -- NOTE: You can also specify a branch or a specific commit
   vim.pack.add { { src = gh 'nvim-treesitter/nvim-treesitter', version = 'main' } }
 
+  local has_treesitter_cli = vim.fn.executable 'tree-sitter' == 1
+
   -- Ensure basic parsers are installed
   local parsers = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' }
-  require('nvim-treesitter').install(parsers)
+  if has_treesitter_cli then
+    require('nvim-treesitter').install(parsers)
+  end
 
   ---@param buf integer
   ---@param language string
@@ -937,7 +941,9 @@ do
         treesitter_try_attach(buf, language)
       elseif vim.tbl_contains(available_parsers, language) then
         -- If a parser is available in `nvim-treesitter`, auto-install it and enable it after the installation is done
-        require('nvim-treesitter').install(language):await(function() treesitter_try_attach(buf, language) end)
+        if has_treesitter_cli then
+          require('nvim-treesitter').install(language):await(function() treesitter_try_attach(buf, language) end)
+        end
       else
         -- Try to enable treesitter features in case the parser exists but is not available from `nvim-treesitter`
         treesitter_try_attach(buf, language)

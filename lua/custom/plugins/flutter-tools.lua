@@ -9,4 +9,6 @@ vim.lsp.document_color.enable()
 vim.lsp.config('dartls', {})
 vim.lsp.enable 'dartls'
 
-require('nvim-treesitter').install 'dart'
+if vim.fn.executable 'tree-sitter' == 1 then
+  require('nvim-treesitter').install 'dart'
+end
