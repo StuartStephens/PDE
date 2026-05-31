@@ -1,2 +1,6 @@
 vim.pack.add { 'https://github.com/stevearc/oil.nvim' }
-require('oil').setup {}
+require('oil').setup {
+  view_options = {
+    show_hidden = true,
+  },
+}
