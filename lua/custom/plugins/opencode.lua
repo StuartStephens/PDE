@@ -1,11 +1,16 @@
-return {
-  'NickvanDyke/opencode.nvim',
-  dependencies = {
-    -- Recommended for `ask()` and `select()`.
-    -- Required for `toggle()`.
-    { 'folke/snacks.nvim', lazy = false, priority = 1000, opts = { input = {}, picker = {}, terminal = { enabled = true }, notifier = { top_down = false } } },
-  },
-  config = function()
+vim.pack.add {
+  'https://github.com/NickvanDyke/opencode.nvim',
+  'https://github.com/folke/snacks.nvim',
+}
+
+require('snacks').setup {
+  input = {},
+  picker = {},
+  terminal = { enabled = true },
+  notifier = { top_down = false },
+}
+
+do
     local function pick_open_port()
       local tcp = vim.uv.new_tcp()
       if not tcp then
@@ -139,5 +144,4 @@ return {
     vim.keymap.set('n', '<S-C-d>', function()
       require('opencode').command 'session.half.page.down'
     end, { desc = 'Messages half page down' })
-  end,
-}
+end

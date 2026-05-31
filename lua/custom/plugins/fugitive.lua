@@ -1,6 +1,2 @@
-return {
-  'tpope/vim-fugitive',
-  config = function()
-    vim.keymap.set('n', '<leader>G', '<cmd>vertical G<cr>', { desc = '[G]it Fugitive' })
-  end,
-}
+vim.pack.add { 'https://github.com/tpope/vim-fugitive' }
+vim.keymap.set('n', '<leader>G', '<cmd>vertical G<cr>', { desc = '[G]it Fugitive' })

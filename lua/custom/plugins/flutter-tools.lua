@@ -1,34 +1,12 @@
-return {
-  -- Dart language server
-  {
-    'neovim/nvim-lspconfig',
-    opts = {
-      servers = {
-        dartls = {},
-      },
-    },
-  },
-
-  -- Flutter tools integration
-  {
-    'akinsho/flutter-tools.nvim',
-    lazy = false,
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-      'stevearc/dressing.nvim', -- optional UI improvements
-      'neovim/nvim-lspconfig',
-    },
-    config = function()
-      require('flutter-tools').setup {}
-      vim.lsp.document_color.enable()
-    end,
-  },
-
-  -- Treesitter for Dart syntax
-  {
-    'nvim-treesitter/nvim-treesitter',
-    opts = {
-      ensure_installed = { 'dart' },
-    },
-  },
+vim.pack.add {
+  'https://github.com/akinsho/flutter-tools.nvim',
+  'https://github.com/nvim-lua/plenary.nvim',
+  'https://github.com/stevearc/dressing.nvim',
 }
+
+require('flutter-tools').setup {}
+vim.lsp.document_color.enable()
+vim.lsp.config('dartls', {})
+vim.lsp.enable 'dartls'
+
+require('nvim-treesitter').install 'dart'
